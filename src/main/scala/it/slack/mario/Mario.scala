@@ -61,7 +61,7 @@ object Mario {
 
         logger.info(settings.toString)
 
-        var configurationBuilder = new Configuration.Builder()
+        val configurationBuilder = new Configuration.Builder()
             .setName(settings.nickname)
             .setLogin(settings.username)
             .setAutoNickChange(true)
