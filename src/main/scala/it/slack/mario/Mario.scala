@@ -10,7 +10,7 @@ import org.pircbotx.UtilSSLSocketFactory
 import com.typesafe.config.ConfigFactory
 import org.slf4j.LoggerFactory
 
-class MainListener(nickname: String) extends ListenerAdapter[PircBotX] {
+class DirectMessageListener(nickname: String) extends ListenerAdapter[PircBotX] {
     val byName = (nickname + ": .*") r
 
     override def onMessage(event: MessageEvent[PircBotX]) = {
@@ -68,7 +68,7 @@ object Mario {
             .setCapEnabled(true)
             .setServer(settings.server_hostname, settings.server_port)
             .addAutoJoinChannel(settings.channel)
-            .addListener(new MainListener(settings.nickname))
+            .addListener(new DirectMessageListener(settings.nickname))
             .addListener(new QuitListener)
 
         if (settings.server_uses_ssl) {
