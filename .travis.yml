@@ -1,0 +1,15 @@
+# see http://about.travis-ci.org/docs/user/build-configuration/
+# and http://about.travis-ci.org/docs/user/languages/scala/
+language: scala
+scala:
+  - 2.10.3
+branches:
+  only:
+    - master
+notifications:
+  email:
+    recipients:
+      - jaramir@gmail.com
+jdk:
+  - openjdk7
+  - oraclejdk7

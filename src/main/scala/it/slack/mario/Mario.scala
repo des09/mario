@@ -87,8 +87,8 @@ class Settings {
     }
 }
 
-object Mario {
-    def main(args: Array[String]) = {
+class Mario {
+    def run() = {
         val logger = LoggerFactory.getLogger(getClass)
 
         val settings = new Settings
@@ -118,4 +118,8 @@ object Mario {
         val bot = new PircBotX(configuration)
         bot.startBot()
     }
+}
+
+object Mario extends Mario {
+    def main(args: Array[String]) = run
 }
