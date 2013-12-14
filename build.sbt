@@ -9,7 +9,8 @@ libraryDependencies ++= Seq(
   "org.slf4j" % "slf4j-simple" % "1.7.5",
   "com.typesafe" % "config" % "1.0.2",
   "net.databinder.dispatch" %% "dispatch-core" % "0.11.0",
-  "org.scalatest" %% "scalatest" % "2.0" % "test"
+  "org.scalatest" %% "scalatest" % "2.0" % "test",
+  "org.mockito" % "mockito-core" % "1.9.5"
 )
 
 mainClass in Compile := Some("it.slack.mario.Mario")
