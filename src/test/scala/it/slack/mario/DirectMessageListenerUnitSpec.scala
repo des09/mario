@@ -1,9 +1,11 @@
 package it.slack.mario
 
+import org.mockito.Matchers.any
 import org.mockito.Mockito.never
 import org.mockito.Mockito.verify
 import org.pircbotx.hooks.events.MessageEvent
 import org.pircbotx.PircBotX
+import org.pircbotx.User
 
 class DirectMessageListenerUnitSpec extends BaseListenerUnitSpec {
     describe("DirectMessageListener") {
@@ -14,7 +16,7 @@ class DirectMessageListenerUnitSpec extends BaseListenerUnitSpec {
 
             listener.onMessage(message)
 
-            verify(outputChannel).message(user, "I'm very busy saving the princess")
+            verify(outputChannel).message(user, listener.response)
         }
 
         it("ignores other messages") {
@@ -24,7 +26,7 @@ class DirectMessageListenerUnitSpec extends BaseListenerUnitSpec {
 
             listener.onMessage(message)
 
-            verify(outputChannel, never).message(user, "I'm very busy saving the princess")
+            verify(outputChannel, never).message(any[User], any[String])
         }
     }
 }
