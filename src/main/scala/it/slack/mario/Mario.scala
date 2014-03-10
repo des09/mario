@@ -7,7 +7,8 @@ object Mario {
 
     def getSynonymListener(settings: Settings): Option[SynonymListener] = {
         if (settings.hasWordsBighugelabsComApiKey) {
-            Some(new SynonymListener(settings.words_bighugelabs_com_api_key))
+            val thesaurus = new BighugelabsWords(settings.words_bighugelabs_com_api_key)
+            Some(new SynonymListener(thesaurus))
         }
         else {
             None
